@@ -1,6 +1,9 @@
 {% extends  "layout.html" %}
 {% block content %}
-<h1>{{ current_user.username }}</h1>
-<img src="static/Photos/Fubuki1.jpg" width="180px" height="200px" class="border-bottom mb-4">
-<h1 class="article-title" > heh dag<FONT COLOR="#ff0000"> RIZZ</FONT>et </h1>
+<div class="content-section">
+  <img src="static/Photos/Fubuki1.jpg" width="35%" height="250px" class="">
+  <h2 class="content-section"> Username: {{ current_user.username }}</h2>
+  <h2 class="content-section"> Email: {{ current_user.email }}</h2>
+
+</div>
 {% endblock content %}

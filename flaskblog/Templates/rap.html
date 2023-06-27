@@ -1,0 +1,13 @@
+{% extends  "layout.html" %}
+{% block content %}
+<h1 style="margin-bottom: 30px">Top 25 Rap Music</h1>
+
+    {% for rap in raps %}
+
+          <div class="content-section">
+              <a class="article-title" > <FONT COLOR="#000000"> {{ rap }} </FONT> </a>
+          </div>
+
+    {% endfor %}
+
+{% endblock content %}

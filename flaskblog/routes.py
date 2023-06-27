@@ -1,22 +1,28 @@
 from flask import render_template, url_for, flash, redirect
+
+import flaskblog.Data.rap
+import flaskblog.Data.rock
+import flaskblog.Data.pop
 from flaskblog import app, db, bcrypt
 from flaskblog.forms import Registrationform, Loginform
 from flaskblog.models import User, Post
 from flask_login import login_user, current_user, logout_user
 
+
 posts = [
     {
-        "author": "Yoruichi",
-        "title": "Blog Post 1",
-        "content": "First Post Content",
-        "date_posted": "May 31, 2023"
+        "title": "Pop",
+        "image": "static/Photos/Pop1.png",
     },
     {
-        "author": "Fubuki",
-        "title": "Blog Post 2",
-        "content": "Second Post Content",
-        "date_posted": "June 1, 2023"
+        "title": "Rap",
+        "image": "static/Photos/Rap1.jfif",
     },
+
+    {
+        "title": "Rock",
+        "image": "static/Photos/rock.png",
+    }
 ]
 
 
@@ -70,3 +76,31 @@ def logout():
 @app.route('/account')
 def account():
     return render_template("account.html", title="Account")
+
+
+@app.route('/Pop', methods=["GET", "POST"])
+def pop():
+    if current_user.is_authenticated:
+        return render_template("pop.html", title="Top25 Pop Music", pops=flaskblog.Data.pop.pop_music)
+    else:
+        return redirect(url_for("register"))
+
+
+@app.route('/Rap', methods=["GET", "POST"])
+def rap():
+    if current_user.is_authenticated:
+        return render_template("rap.html", title="Top25 Rap Music", raps=flaskblog.Data.rap.rap_music)
+    else:
+        return redirect(url_for("register"))
+
+
+@app.route('/Rock', methods=["GET", "POST"])
+def rock():
+    if current_user.is_authenticated:
+        return render_template("rock.html", title="Top25 Rock Music", rocks=flaskblog.Data.rock.rock_music)
+    else:
+        return redirect(url_for("register"))
+
+
+
+""" errori akvs """

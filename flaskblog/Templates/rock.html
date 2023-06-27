@@ -1,0 +1,13 @@
+{% extends  "layout.html" %}
+{% block content %}
+<h1 style="margin-bottom: 30px">Top 25 Rock Music</h1>
+
+    {% for rock in rocks %}
+
+          <div class="content-section">
+              <a class="article-title"> <FONT COLOR="#000000"> {{ rock }} </FONT> </a>
+          </div>
+
+    {% endfor %}
+
+{% endblock content %}

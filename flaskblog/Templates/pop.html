@@ -1,0 +1,13 @@
+{% extends  "layout.html" %}
+{% block content %}
+<h1 style="margin-bottom: 30px">Top 25 Pop Music</h1>
+
+    {% for pop in pops %}
+
+          <div class="content-section">
+            <a class="article-title"> <FONT COLOR="#000000"> {{ pop }}  </FONT> </a>
+          </div>
+
+    {% endfor %}
+
+{% endblock content %}
