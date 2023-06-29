@@ -16,7 +16,7 @@ posts = [
     },
     {
         "title": "Rap",
-        "image": "static/Photos/sergo.jpg",
+        "image": "static/Photos/rapper.png",
     },
 
     {

@@ -2,6 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, BooleanField
 from wtforms.validators import DataRequired, Length, EqualTo, ValidationError
 from flaskblog.models import User
+import re
 
 
 # from wtforms.validators import DataRequired, Length, email_validator, EqualTo
@@ -20,11 +21,18 @@ class Registrationform(FlaskForm):
 
     def validate_username(self, username):
         user = User.query.filter_by(username=username.data).first()
-        if user:
-            raise ValidationError("That username is taken. Please choose different one.")
+        #if user:
+            #raise ValidationError("That username is taken. Please choose different one.")
 
     def validate_email(self, email):
         user = User.query.filter_by(email=email.data).first()
+
+        pattern = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
+        valid = bool(re.match(pattern, email.data))
+        
+        if not valid:
+            raise ValidationError("Incorrect Email Format")
+
         if user:
             raise ValidationError("That email is taken. Please choose different one.")
 
