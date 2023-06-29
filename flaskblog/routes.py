@@ -12,11 +12,11 @@ from flask_login import login_user, current_user, logout_user
 posts = [
     {
         "title": "Pop",
-        "image": "static/Photos/Pop1.png",
+        "image": "static/Photos/pop2.png",
     },
     {
         "title": "Rap",
-        "image": "static/Photos/Rap1.jfif",
+        "image": "static/Photos/sergo.jpg",
     },
 
     {
